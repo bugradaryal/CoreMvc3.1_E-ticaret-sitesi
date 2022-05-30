@@ -1,0 +1,42 @@
+﻿@model CartItem
+
+@{
+    ViewData["Title"] = " | Sepeti Düzenle";
+}
+
+<h1>Sepetteki Ürünü Düzenle</h1>
+<form asp-action="Edit" method="post">
+    <ul class="list-group mb-2">
+        <li class="list-group-item">@Model.Product.Name</li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-1">
+                    <label>Fiyat:</label>
+                </div>
+                <div class="col">
+                    @Model.Product.Price.ToString("c")
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="form-row">
+                <div class="col-1">
+                    <label asp-for="Quantity">Miktar:</label>
+                </div>
+                <div class="col">
+                    <select asp-for="Quantity" class="form-control">
+                        @for (int i = 1; i <= 10; i++)
+                        {
+                            <option>@i</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <input type="hidden" asp-for="Product.OfficeProductId" />
+    <input type="hidden" asp-for="Product.Name" />
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" asp-controller="Cart" class="btn btn-primary">İptal</a>
+</form>

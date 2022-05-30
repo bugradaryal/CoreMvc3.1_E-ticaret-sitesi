@@ -1,0 +1,44 @@
+﻿.satınalım {
+    margin-top: 2em;
+}
+
+    .satınalım .adressbox {
+        resize: none;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    .satınalım .inputsatınalım {
+        width: 22em;
+        padding-left: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+.yontem {
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+
+}
+.yontem b{
+    font-size:20px;
+}
+
+#myDIV {
+    display: none;
+    margin-top: 2em;
+}
+.sonislem {
+    margin-top: 3em;
+    margin-left: 1em;
+}
+
+
+.alısverisislem {
+    float: left;
+    margin-right: 2em;
+}
+
+.cartbody {
+    padding-bottom: 5em;
+}
+

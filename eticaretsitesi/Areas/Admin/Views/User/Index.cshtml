@@ -1,0 +1,94 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = " | Kullanıcıları Yönet";
+}
+
+<h1 class="mb-2">Kullanıcıları Yönet</h1>
+
+<h5 class="mt-2"><a asp-action="Add">Kullanıcı Ekle</a></h5>
+
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr><th>Kullanıcı Adı</th><th>Roller</th><th></th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+        @if (Model.Users.Count() == 0)
+        {
+            <tr><td colspan="5">Kullanıcı hesabı yok.</td></tr>
+        }
+        else
+        {
+            @foreach (User user in Model.Users)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>
+                        @foreach (string roleName in user.RoleNames)
+                        {
+                            <div>@roleName</div>
+                        }
+                    </td>
+                    <td>
+                        <form method="post" asp-action="Delete"
+                              asp-route-id="@user.Id">
+                            <button type="submit" class="btn btn-primary">
+                                Kullanıcıyı Sil
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" asp-action="AddToAdmin"
+                              asp-route-id="@user.Id">
+                            <button type="submit" class="btn btn-primary">
+                                Yönetici Yap
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" asp-action="RemoveFromAdmin"
+                              asp-route-id="@user.Id">
+                            <button type="submit" class="btn btn-primary">
+                                Yöneticilikten Çıkar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<h1 class="mb-2">Rolleri Yönet</h1>
+
+@if (Model.Roles.Count() == 0)
+{
+    <form method="post" asp-action="CreateAdminRole">
+        <button type="submit" class="btn btn-primary">
+            Yönetici Rolü Oluştur
+        </button>
+    </form>
+}
+else
+{
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr><th>Rol</th><th></th></tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model.Roles)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td>
+                        <form method="post" asp-action="DeleteRole"
+                              asp-route-id="@role.Id">
+                            <button type="submit" class="btn btn-primary">
+                                Rolü Sil
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

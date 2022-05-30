@@ -1,0 +1,86 @@
+﻿@model ProductListViewModel
+
+@{
+    ViewData["Title"] = "Ürünler";
+
+    RouteDictionary current = Model.CurrentRoute;
+    RouteDictionary routes = Model.CurrentRoute.Clone();
+}
+
+<h1>Özel Ürünlerimiz</h1>
+
+<form asp-action="Filter" method="post" class="form-inline">
+    <label>Ürün Tipi: </label>
+    <select name="filter" class="form-control m-2"
+            asp-items="@(new SelectList(
+            Model.ProductTypes, "ProductTypeId", "Name", current.ProductTypeFilter))">
+        <option value="@ProductGridDTO.DefaultFilter">Hepsi</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary mr-2">Filtrele</button>
+    <button type="submit" class="btn btn-primary" name="clear" value="true">Temizle</button>
+</form>
+
+<form asp-action="Add" asp-controller="Cart" method="post">
+    <table class="table table-bordered table-striped table-sm">
+        <thead class="thead-dark">
+        <tr>
+            <th>Resimler</th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(OfficeProduct.Name), current); }
+                <a asp-action="List" asp-all-route-data="@routes"
+                   class="text-white">Ürün İsmi</a>
+            </th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(ProductType), current); }
+                <a asp-action="List" asp-all-route-data="@routes"
+                   class="text-white">Ürün Tipi</a>
+            </th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(OfficeProduct.Price), current); }
+                <a asp-action="List" asp-all-route-data="@routes"
+                   class="text-white">Fiyat</a>
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (OfficeProduct product in Model.Products)
+            {
+                <tr>
+                    @foreach (Image image in Model.Images)
+                    {
+                        @if (image.ImageId == product.ImageId)
+                        {
+                            <td>
+                                <img src="@product.Image.Url()" class="img-fluid img-thumbnail" alt="@product.Name" style="max-height: 250px"/>
+                            </td>
+                        }
+                    }
+                    <td>
+                        <a asp-action="Details" asp-route-id="@product.OfficeProductId"
+                           asp-route-slug="@product.Name.Slug()">
+                            @product.Name
+                        </a>
+                    </td>
+                    <td>@product.Type?.Name</td>
+                    <td>@product.Price.ToString("c")</td>
+                    <td>
+                        <button type="submit" name="id" value="@product.OfficeProductId"
+                                class="btn btn-primary">SepeteEkle</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
+@{
+    routes = Model.CurrentRoute.Clone();
+    for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        routes.PageNumber = i;
+        <a asp-action="List" asp-all-route-data="@routes"
+           class="btn btn-outline-primary @Nav.Active(i, current.PageNumber)">@i</a>
+    }
+}

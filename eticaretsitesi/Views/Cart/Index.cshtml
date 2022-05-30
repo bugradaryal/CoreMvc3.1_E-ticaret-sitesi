@@ -1,0 +1,70 @@
+﻿@model CartViewModel
+
+@{
+    ViewData["Title"] = " | Sepet";
+}
+
+<h1>Benim Sepetim</h1>
+
+<form asp-action="Clear" method="post">
+    <ul class="list-group mb-4">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">
+                    Toplam Fiyat: @Model.Subtotal.ToString("c")
+                </div>
+                <div class="col">
+                    <div class="float-right">
+                        <a asp-action="Checkout" class="btn btn-primary">Alışverişi Tamamla</a>
+                        <button type="submit" class="btn btn-primary">Sepeti Temizle</button>
+                        <a asp-action="List" asp-controller="Products"
+                           asp-all-route-data="@Model.BookGridRoute">Alışverişe Devam Et</a>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</form>
+<form asp-action="Remove" method="post">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Ürün İsmi</th>
+                <th>Ürün Fiyatı</th>
+                <th>Ürün Miktarı</th>
+                <th>Toplam Fiyat</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CartItem item in Model.List)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-controller="Products"
+                           asp-route-id="@item.Product.OfficeProductId"
+                           asp-route-slug="@item.Product.Name.Slug()">
+                            @item.Product.Name
+                        </a>
+                    </td>
+                    <td>@item.Product.Price.ToString("c")</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Subtotal.ToString("c")</td>
+                    <td>
+                        <div class="float-right">
+                            <a asp-action="Edit" asp-controller="Cart"
+                               asp-route-id="@item.Product.OfficeProductId"
+                               asp-route-slug="@item.Product.Name.Slug()"
+                               class="btn btn-primary">Düzenle</a>
+                            <button type="submit" name="id" value="@item.Product.OfficeProductId"
+                                    class="btn btn-primary">
+                                Sil
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

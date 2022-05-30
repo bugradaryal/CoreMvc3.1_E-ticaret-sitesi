@@ -1,0 +1,79 @@
+﻿@model ProductViewModel
+
+@{
+    var action = ViewContext.RouteData.Values["action"].ToString().Capitalize();
+
+    ViewData["Title"] = $" | Ürün - {action}";
+}
+
+<h1>Ürün - @action</h1>
+
+<div asp-validation-summary="All" class="text-danger" ></div>
+
+<form asp-action="@action" asp-area="Admin" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="Product.OfficeProductId" />
+    <input type="hidden" asp-for="Product.ImageId"/>
+
+    <div class="form-group row">
+        <div class="col-sm-2"><label>Ürün İsmi:</label></div>
+
+        @if (Operation.IsDelete(action))
+        {
+            <div class="col-sm-4"><label>@Model.Product.Name</label></div>
+            <input type="hidden" asp-for="Product.Name" />
+        }
+        else
+        {
+            <div class="col-sm-4">
+                <input type="text" asp-for="Product.Name" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+        }
+    </div>
+
+    @if (!Operation.IsDelete(action))
+    {
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Ürün Fiyatı:</label></div>
+            <div class="col-sm-4">
+                <input type="text" asp-for="Product.Price" class="form-control" />
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Ürün Tipi:</label></div>
+            <div class="col-sm-4">
+                <select asp-for="Product.ProductTypeId" class="form-control"
+                        asp-items='@new SelectList(Model.Types, "ProductTypeId", "Name", Model.Product.ProductTypeId)'>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Product.ProductTypeId" class="text-danger"></span>
+            </div>
+        </div>
+    }
+    
+    @if (!Operation.IsDelete(action) && Operation.IsAdd(@action))
+    {
+        <div class="form-group row">
+            <div class="col-sm-2"><label>Ürün Resimi:</label></div>
+            <div class="col-sm-4">
+                <input type="file" id="file1"
+                       name="file1"/>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-sm-4 offset-sm-2">
+            <button type="submit" class="btn btn-primary">@action</button>
+
+            <a asp-action="@(Operation.IsAdd(action) ? "Index" : "Search")"
+               class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

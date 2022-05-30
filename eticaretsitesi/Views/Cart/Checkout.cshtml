@@ -1,0 +1,170 @@
+﻿@{
+    ViewData["Title"] = "Alışverişi Tamamla";
+}
+<head>
+    <link rel="stylesheet" href="~/css/cart.css">
+</head>
+
+
+<h1>Alışverişi Tamamla</h1>
+
+<div class="cartbody">
+
+    <div class="satınalım">
+        <form id="formpost" method="post" asp-action="Checkout_done" asp-controller="Cart">
+            <label for="fname">Teslim Alacak Kişi Ad-Soyad:</label><br>
+            <input type="text" class="inputsatınalım" name="adsoyad" required maxlength="32" minlength="3"><br>
+
+            <label for="fname">Telefon Numarası:</label><br>
+            <input type="text" class="inputsatınalım" required maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="tel"><br>
+
+            <label for="fname">Fatura Mail Adresi</label><br>
+            <input type="email" class="inputsatınalım" name="eposta"><br>
+
+            <label for="fname">Adres:</label><br>
+            <textarea class="adressbox" rows="4" cols="50" name="adres"></textarea>
+        </form>
+    </div>
+    <div class="yontem">
+        <b>Ödeme Yöntemi</b>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked onclick="myFunction1()">
+        <label class="form-check-label" for="exampleRadios1">Kapıda Ödeme</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" onclick="myFunction2()">
+        <label class="form-check-label" for="exampleRadios2">Kart İle Ödeme</label>
+    </div>
+
+    <div id="myDIV">
+
+        <aside class="col-sm-6">
+
+            <article class="card">
+                <div class="card-body p-5">
+
+                    <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
+                                <i class="fa fa-credit-card"></i> Kredi Kartı
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
+                                <i class="fab fa-paypal"></i>  Paypal
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+                                <i class="fa fa-university"></i>  Banka Transferi
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="nav-tab-card">
+                            <p class="alert alert-success">Bilgileri boş veya hatalı doldurmamaya dikkat ediniz!</p>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="username">Kart Üstündeki İsim</label>
+                                    <input type="text" class="form-control" name="username" placeholder="" required="">
+                                </div> <!-- form-group.// -->
+
+                                <div class="form-group">
+                                    <label for="cardNumber">Kart Numarası</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="cardNumber" placeholder="">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text text-muted">
+                                                <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>
+                                                <i class="fab fa-cc-mastercard"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div> <!-- form-group.// -->
+
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label><span class="hidden-xs">Son Kullanma Tarihi</span> </label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" placeholder="MM" name="">
+                                                <input type="number" class="form-control" placeholder="YY" name="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label data-toggle="tooltip" title="Kartın arka yüzündeki 3 haneli kod">CVV <i class="fa fa-question-circle"></i></label>
+                                            <input type="number" class="form-control" required="">
+                                        </div> <!-- form-group.// -->
+                                    </div>
+                                </div> <!-- row.// -->
+                            </form>
+                        </div> <!-- tab-pane.// -->
+                        <div class="tab-pane fade" id="nav-tab-paypal">
+                            <p>Paypal çevrimiçi ödeme yapmanın en kolay yolu</p>
+                            <p>
+                                <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Paypal'ımda oturum aç </button>
+                            </p>
+                            <p>
+                                <strong>Not:</strong> Paypal işlemleri bazı ülkeler için kapalı olabilir. İşlem gerçekleştiremiyorsanız
+                                bulunduğunuz bölge üzerinde paypal hizmetinin etkin olup olmadığını kontrol etmeniz gerekmektedir.
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="nav-tab-bank">
+                            <p>Banka hesap bilgileri</p>
+                            <dl class="param">
+                                <dt>Banka: </dt>
+                                <dd> Ziraat Bankası</dd>
+                            </dl>
+                            <dl class="param">
+                                <dt>Hesap Numarası: </dt>
+                                <dd> 12345678912345</dd>
+                            </dl>
+                            <dl class="param">
+                                <dt>IBAN: </dt>
+                                <dd> 1234415213</dd>
+                            </dl>
+                            <p>
+                                <strong>Not:</strong> Ödeme işlemini gerçekleştirdikten sonra dekondu bize mail üzerinden ulaştırmanız gerekmektedir.
+                                Dekondu mail üzerinden bize 3 iş günü içinde ulaştırmayan kullanıcıların alışverişleri geçersiz sayılmaktadır.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        </aside>
+    </div>
+
+    <div class="sonislem">
+        <div>
+            <button type="submit" form="formpost" class="btn btn-danger">Alışverişi Tamamla</button>
+        </div>
+        <form asp-controller="Cart" asp-action="Index" asp-area="" class="alısverisislem">
+            <button type="submit" class="btn btn-info">İşlem İptal</button>
+        </form>
+    </div>
+
+
+
+</div>
+
+
+
+<script>
+    var x = document.getElementById("myDIV");
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    function myFunction1() {
+        x.style.display = "none";
+    }
+    function myFunction2() {
+        x.style.display = "block";
+    }
+</script>
+

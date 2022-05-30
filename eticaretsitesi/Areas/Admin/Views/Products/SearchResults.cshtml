@@ -21,15 +21,15 @@
         <tr>
             <td>
                 <a asp-action="Details" asp-controller="Products"
-                   asp-area="" asp-route-id="@product.OfficeProductId"
+                   asp-area="" asp-route-id="@product.ProductId"
                    asp-route-slug="@product.Name.Slug()">@product.Name</a>
             </td>
             <td>@product.Type.Name</td>
             <td>
                 <div class="float-right">
-                    <a asp-action="Edit" asp-route-id="@product.OfficeProductId"
+                    <a asp-action="Edit" asp-route-id="@product.ProductId"
                        class="btn btn-primary">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@product.OfficeProductId"
+                    <a asp-action="Delete" asp-route-id="@product.ProductId"
                        class="btn btn-primary">Delete</a>
                 </div>
             </td>

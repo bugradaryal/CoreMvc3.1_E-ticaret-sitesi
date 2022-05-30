@@ -13,7 +13,7 @@ namespace eticaretsitesi.Controllers
         public IActionResult List(ProductGridDTO values)
         {
             var builder = new ProductsGridBuilder(HttpContext.Session, values,
-                nameof(OfficeProduct.Name));
+                nameof(Product.Name));
 
             var options = new ProductQueryOptions {
                 Include = "Type",
@@ -54,9 +54,9 @@ namespace eticaretsitesi.Controllers
         }
         public ViewResult Details(int id)
         {
-            var product = this.Data.Products.Get(new QueryOptions<OfficeProduct> {
+            var product = this.Data.Products.Get(new QueryOptions<Product> {
                 Include = "Type",
-                Where = b => b.OfficeProductId == id
+                Where = b => b.ProductId == id
             });
             var image = this.Data.Images.Get(product.ImageId);
             ViewBag.Url = image.Url();

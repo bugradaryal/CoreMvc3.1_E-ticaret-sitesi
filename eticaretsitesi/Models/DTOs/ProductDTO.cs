@@ -2,12 +2,12 @@
 {
     public class ProductDTO : GridDTO
     {
-        public int OfficeProductId { get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public void Load(OfficeProduct product)
+        public void Load(Product product)
         {
-            this.OfficeProductId = product.OfficeProductId;
+            this.ProductId = product.ProductId;
             this.Name = product.Name;
             this.Price = product.Price;
         }

@@ -9,7 +9,7 @@ namespace eticaretsitesi.Models
         public bool IsSortByProductType =>
             Routes.SortField.EqualsNoCase(nameof(ProductType));
         public bool IsSortByPrice =>
-            Routes.SortField.EqualsNoCase(nameof(OfficeProduct.Price));
+            Routes.SortField.EqualsNoCase(nameof(Product.Price));
         public ProductsGridBuilder(ISession sess) : base(sess)
         {
         }

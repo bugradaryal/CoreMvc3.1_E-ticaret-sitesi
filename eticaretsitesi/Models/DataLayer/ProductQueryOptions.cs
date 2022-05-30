@@ -2,7 +2,7 @@
 
 namespace eticaretsitesi.Models
 {
-    public class ProductQueryOptions : QueryOptions<OfficeProduct>
+    public class ProductQueryOptions : QueryOptions<Product>
     {
         public void SortFilter(ProductsGridBuilder builder)
         {

@@ -13,16 +13,16 @@
     <div class="satınalım">
         <form id="formpost" method="post" asp-action="Checkout_done" asp-controller="Cart">
             <label for="fname">Teslim Alacak Kişi Ad-Soyad:</label><br>
-            <input type="text" class="inputsatınalım" name="adsoyad" required maxlength="32" minlength="3"><br>
+            <input type="text" class="inputsatınalım" name="adsoyad" required maxlength="32" minlength="2"><br>
 
             <label for="fname">Telefon Numarası:</label><br>
             <input type="text" class="inputsatınalım" required maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="tel"><br>
 
             <label for="fname">Fatura Mail Adresi</label><br>
-            <input type="email" class="inputsatınalım" name="eposta"><br>
+            <input type="email" class="inputsatınalım" name="eposta" required maxlength="50" minlength="6"><br>
 
             <label for="fname">Adres:</label><br>
-            <textarea class="adressbox" rows="4" cols="50" name="adres"></textarea>
+            <textarea class="adressbox" rows="4" cols="50" required name="adres" maxlength="300" minlength="6"></textarea>
         </form>
     </div>
     <div class="yontem">

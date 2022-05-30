@@ -22,7 +22,7 @@ namespace eticaretsitesi.Models
             this.RequestCookies = ctx.Request.Cookies;
             this.ResponseCookies = ctx.Response.Cookies;
         }
-        public void Load(Repository<OfficeProduct> data)
+        public void Load(Repository<Product> data)
         {
             this.Items = this.Session.GetObject<List<CartItem>>(CartKey);
             if (this.Items == null)
@@ -35,9 +35,9 @@ namespace eticaretsitesi.Models
             {
                 foreach (var storedItem in this.StoredItems)
                 {
-                    var book = data.Get(new QueryOptions<OfficeProduct> {
+                    var book = data.Get(new QueryOptions<Product> {
                         Include = "Type",
-                        Where = b => b.OfficeProductId == storedItem.OfficeProductId
+                        Where = b => b.ProductId == storedItem.ProductId
                     });
                     if (book != null)
                     {
@@ -57,11 +57,11 @@ namespace eticaretsitesi.Models
         }
         public CartItem GetById(int id)
         {
-            return this.Items.FirstOrDefault(ci => ci.Product.OfficeProductId == id);
+            return this.Items.FirstOrDefault(ci => ci.Product.ProductId == id);
         }
         public void Add(CartItem item)
         {
-            var itemInCart = this.GetById(item.Product.OfficeProductId);
+            var itemInCart = this.GetById(item.Product.ProductId);
 
             if (itemInCart == null)
             {
@@ -74,7 +74,7 @@ namespace eticaretsitesi.Models
         }
         public void Edit(CartItem item)
         {
-            var itemInCart = this.GetById(item.Product.OfficeProductId);
+            var itemInCart = this.GetById(item.Product.ProductId);
             if (itemInCart != null)
             {
                 itemInCart.Quantity = item.Quantity;

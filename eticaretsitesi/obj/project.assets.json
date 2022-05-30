@@ -9057,11 +9057,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bugra\\Desktop\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\eticaretsitesi.csproj",
+      "projectUniqueName": "C:\\Users\\bugra\\Documents\\Uygulamalarım\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\eticaretsitesi.csproj",
       "projectName": "eticaretsitesi",
-      "projectPath": "C:\\Users\\bugra\\Desktop\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\eticaretsitesi.csproj",
+      "projectPath": "C:\\Users\\bugra\\Documents\\Uygulamalarım\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\eticaretsitesi.csproj",
       "packagesPath": "C:\\Users\\bugra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bugra\\Desktop\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\obj\\",
+      "outputPath": "C:\\Users\\bugra\\Documents\\Uygulamalarım\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Microsoft\\Shared\\NuGetPackages"

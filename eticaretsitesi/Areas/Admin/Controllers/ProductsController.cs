@@ -46,7 +46,7 @@ namespace eticaretsitesi.Areas.Admin.Controllers
                     SearchTerm = search.SearchTerm
                 };
 
-                var options = new QueryOptions<OfficeProduct> {
+                var options = new QueryOptions<Product> {
                     Include = "Type"
                 };
                 if (search.IsProduct)
@@ -157,13 +157,13 @@ namespace eticaretsitesi.Areas.Admin.Controllers
         {
             if (Operation.IsAdd(op))
             {
-                vm.Product = new OfficeProduct();
+                vm.Product = new Product();
             }
             else
             {
-                vm.Product = this.Data.Products.Get(new QueryOptions<OfficeProduct> {
+                vm.Product = this.Data.Products.Get(new QueryOptions<Product> {
                     Include = "Type",
-                    Where = op => op.OfficeProductId == (id ?? vm.Product.OfficeProductId)
+                    Where = op => op.ProductId == (id ?? vm.Product.ProductId)
                 });
             }
 

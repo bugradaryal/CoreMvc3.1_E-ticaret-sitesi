@@ -6,6 +6,6 @@ namespace eticaretsitesi.Models
     {
         public string ProductTypeId { get; set; }
         public string Name { get; set; }
-        public ICollection<OfficeProduct> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

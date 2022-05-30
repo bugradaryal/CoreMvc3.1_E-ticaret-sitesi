@@ -2,7 +2,7 @@
 {
     public interface IProductUnitOfWork
     {
-        Repository<OfficeProduct> Products { get; }
+        Repository<Product> Products { get; }
         Repository<ProductType> Types { get; }
         Repository<Image> Images { get; }
         void Save();

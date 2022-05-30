@@ -43,7 +43,7 @@
                 <tr>
                     <td>
                         <a asp-action="Details" asp-controller="Products"
-                           asp-route-id="@item.Product.OfficeProductId"
+                           asp-route-id="@item.Product.ProductId"
                            asp-route-slug="@item.Product.Name.Slug()">
                             @item.Product.Name
                         </a>
@@ -54,10 +54,10 @@
                     <td>
                         <div class="float-right">
                             <a asp-action="Edit" asp-controller="Cart"
-                               asp-route-id="@item.Product.OfficeProductId"
+                               asp-route-id="@item.Product.ProductId"
                                asp-route-slug="@item.Product.Name.Slug()"
                                class="btn btn-primary">Düzenle</a>
-                            <button type="submit" name="id" value="@item.Product.OfficeProductId"
+                            <button type="submit" name="id" value="@item.Product.ProductId"
                                     class="btn btn-primary">
                                 Sil
                             </button>

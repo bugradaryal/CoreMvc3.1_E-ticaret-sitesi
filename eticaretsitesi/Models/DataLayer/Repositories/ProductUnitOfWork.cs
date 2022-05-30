@@ -2,17 +2,17 @@
 {
     public class ProductUnitOfWork : IProductUnitOfWork
     {
-        private Repository<OfficeProduct> productData;
+        private Repository<Product> productData;
         private Repository<ProductType> typeData;
         private Repository<Image> imageData;
         private ProductContext Context { get; }
-        public Repository<OfficeProduct> Products
+        public Repository<Product> Products
         {
             get
             {
                 if (this.productData == null)
                 {
-                    this.productData = new Repository<OfficeProduct>(this.Context);
+                    this.productData = new Repository<Product>(this.Context);
                 }
 
                 return this.productData;

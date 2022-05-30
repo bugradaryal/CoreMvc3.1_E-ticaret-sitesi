@@ -27,7 +27,7 @@
         <tr>
             <th>Resimler</th>
             <th>
-                @{ routes.SetSortAndDirection(nameof(OfficeProduct.Name), current); }
+                @{ routes.SetSortAndDirection(nameof(Product.Name), current); }
                 <a asp-action="List" asp-all-route-data="@routes"
                    class="text-white">Ürün İsmi</a>
             </th>
@@ -37,7 +37,7 @@
                    class="text-white">Ürün Tipi</a>
             </th>
             <th>
-                @{ routes.SetSortAndDirection(nameof(OfficeProduct.Price), current); }
+                @{ routes.SetSortAndDirection(nameof(Product.Price), current); }
                 <a asp-action="List" asp-all-route-data="@routes"
                    class="text-white">Fiyat</a>
             </th>
@@ -45,7 +45,7 @@
         </tr>
         </thead>
         <tbody>
-            @foreach (OfficeProduct product in Model.Products)
+            @foreach (Product product in Model.Products)
             {
                 <tr>
                     @foreach (Image image in Model.Images)
@@ -58,7 +58,7 @@
                         }
                     }
                     <td>
-                        <a asp-action="Details" asp-route-id="@product.OfficeProductId"
+                        <a asp-action="Details" asp-route-id="@product.ProductId"
                            asp-route-slug="@product.Name.Slug()">
                             @product.Name
                         </a>
@@ -66,7 +66,7 @@
                     <td>@product.Type?.Name</td>
                     <td>@product.Price.ToString("c")</td>
                     <td>
-                        <button type="submit" name="id" value="@product.OfficeProductId"
+                        <button type="submit" name="id" value="@product.ProductId"
                                 class="btn btn-primary">SepeteEkle</button>
                     </td>
                 </tr>

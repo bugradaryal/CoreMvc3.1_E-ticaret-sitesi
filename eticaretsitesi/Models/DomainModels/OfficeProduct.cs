@@ -2,9 +2,9 @@
 
 namespace eticaretsitesi.Models
 {
-    public class OfficeProduct
+    public class Product
     {
-        public int OfficeProductId { get; set; }
+        public int ProductId { get; set; }
         [Required(ErrorMessage = "Lütfen bir isim belirtin")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Lütfen bir fiyat belirtin")]

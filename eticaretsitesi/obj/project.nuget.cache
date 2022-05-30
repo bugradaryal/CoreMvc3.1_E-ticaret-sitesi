@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zaXWYp4dwcp/Ctquyb7S+gCBVB+Vlfm5FFVPB10qEbXMk/AbZ4I/0ntwH+A9JgXbZJmD0fc6wUWemn8y7XKtTw==",
+  "dgSpecHash": "M8jyGaJ8eIvsOvfBtZKAMB+15jHUf4HHgGG5pWoag00XcmI/ZFAfFknsTxL7M65tF+NXcaMFST/h9P7IL99ZLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bugra\\Desktop\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\eticaretsitesi.csproj",
+  "projectFilePath": "C:\\Users\\bugra\\Documents\\Uygulamalarım\\CoreMvc3.1_E-ticaret-sitesi\\eticaretsitesi\\eticaretsitesi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bugra\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\bugra\\.nuget\\packages\\mailkit\\3.2.0\\mailkit.3.2.0.nupkg.sha512",

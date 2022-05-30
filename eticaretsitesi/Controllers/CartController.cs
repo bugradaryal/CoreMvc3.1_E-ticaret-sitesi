@@ -12,10 +12,10 @@ namespace eticaretsitesi.Controllers
     [Authorize]
     public class CartController : Controller
     {
-        private Repository<OfficeProduct> Data { get; }
+        private Repository<Product> Data { get; }
         public CartController(ProductContext ctx)
         {
-            this.Data = new Repository<OfficeProduct>(ctx);
+            this.Data = new Repository<Product>(ctx);
         }
         private Cart getCart()
         {
@@ -38,9 +38,9 @@ namespace eticaretsitesi.Controllers
         [HttpPost]
         public RedirectToActionResult Add(int id)
         {
-            var product = this.Data.Get(new QueryOptions<OfficeProduct> {
+            var product = this.Data.Get(new QueryOptions<Product> {
                 Include = "Type",
-                Where = b => b.OfficeProductId == id
+                Where = b => b.ProductId == id
             });
             if (product == null)
             {

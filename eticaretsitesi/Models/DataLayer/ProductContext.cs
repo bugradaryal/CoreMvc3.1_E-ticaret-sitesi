@@ -9,7 +9,7 @@ namespace eticaretsitesi.Models
 {
     public class ProductContext : IdentityDbContext<User>
     {
-        public DbSet<OfficeProduct> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> Types { get; set; }
         public DbSet<Image> Images { get; set; }
         public ProductContext(DbContextOptions<ProductContext> options)
@@ -20,7 +20,7 @@ namespace eticaretsitesi.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<OfficeProduct>().HasOne(op => op.Type)
+            modelBuilder.Entity<Product>().HasOne(op => op.Type)
                         .WithMany(t => t.Products)
                         .OnDelete(DeleteBehavior.NoAction);
 

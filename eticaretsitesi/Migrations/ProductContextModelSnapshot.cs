@@ -168,9 +168,9 @@ namespace eticaretsitesi.Migrations
                     b.ToTable("Images");
                 });
 
-            modelBuilder.Entity("eticaretsitesi.Models.OfficeProduct", b =>
+            modelBuilder.Entity("eticaretsitesi.Models.Product", b =>
                 {
-                    b.Property<int>("OfficeProductId")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -189,7 +189,7 @@ namespace eticaretsitesi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("OfficeProductId");
+                    b.HasKey("ProductId");
 
                     b.HasIndex("ImageId");
 
@@ -360,7 +360,7 @@ namespace eticaretsitesi.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eticaretsitesi.Models.OfficeProduct", b =>
+            modelBuilder.Entity("eticaretsitesi.Models.Product", b =>
                 {
                     b.HasOne("eticaretsitesi.Models.Image", "Image")
                         .WithMany()

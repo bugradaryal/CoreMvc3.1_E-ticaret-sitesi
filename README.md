@@ -3,7 +3,7 @@
 <br>
 
 ## Veri Tabanı Oluşturma
-Veritabanı, dotnet tools ile oluşturulur. İlk önce "appsettings.json" dosyasında ki connection string'in düzenlenmesi gerekmektedir. Düzenleme yapılması durumunda, konsola "dotnet ef database update" komutunun yapılması ile veritabanı oluşturulacaktır. Kullanılan dotnet tools versiyonu "6.0.4".
+Veritabanı, dotnet tools ile oluşturulur. İlk önce "appsettings.json" dosyasındaki connection string'in düzenlenmesi gerekmektedir. Düzenleme yapılması durumunda, konsola "dotnet ef database update" komutunun yapılması ile veritabanı oluşturulacaktır. Kullanılan dotnet tools versiyonu "6.0.4".
 
 <br>
 

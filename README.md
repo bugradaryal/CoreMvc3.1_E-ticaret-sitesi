@@ -5,7 +5,7 @@
 ## Veri Tabanı Oluşturma
 Veritabanı, dotnet tools ile oluşturulur. İlk önce "appsettings.json" dosyasındaki connection string'in düzenlenmesi gerekmektedir. Düzenleme yapılması durumunda, konsola "dotnet ef database update" komutunun yazılması ile veritabanı oluşturulacaktır. 
 
-![Docker Image Version (latest by date)](https://img.shields.io/docker/v/GitHub/6.0.4)
+![version](https://img.shields.io/badge/version-6.0.4-blue)
 
 <br>
 

@@ -10,7 +10,7 @@ using eticaretsitesi.Models;
 namespace eticaretsitesi.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20210514203039_AddIdentityTables")]
+    [Migration("20220604151451_AddIdentityTables")]
     partial class AddIdentityTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,8 +168,6 @@ namespace eticaretsitesi.Migrations
                     b.HasKey("ImageId");
 
                     b.ToTable("Images");
-
-            
                 });
 
             modelBuilder.Entity("eticaretsitesi.Models.Product", b =>

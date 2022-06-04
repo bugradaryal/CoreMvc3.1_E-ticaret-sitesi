@@ -236,7 +236,7 @@ namespace eticaretsitesi.Migrations
                             ProductTypeId = "Moda",
                             Name = "Moda Eşyaları"
                         });
-        });
+                });
 
             modelBuilder.Entity("eticaretsitesi.Models.User", b =>
                 {

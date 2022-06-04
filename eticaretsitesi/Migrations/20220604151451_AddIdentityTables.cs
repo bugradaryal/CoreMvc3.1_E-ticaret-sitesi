@@ -216,9 +216,9 @@ namespace eticaretsitesi.Migrations
                     { "Ofis", "Ofis Eşyaları" },
                     { "Spor", "Spor Eşyaları" },
                     { "Kozmetik", "Kozmetik Eşyaları" },
-                    { "Moda", "Moda Eşyaları" },
-
+                    { "Moda", "Moda Eşyaları" }
                 });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",

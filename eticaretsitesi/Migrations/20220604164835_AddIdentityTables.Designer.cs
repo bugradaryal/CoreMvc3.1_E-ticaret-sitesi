@@ -10,7 +10,7 @@ using eticaretsitesi.Models;
 namespace eticaretsitesi.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20220604151451_AddIdentityTables")]
+    [Migration("20220604164835_AddIdentityTables")]
     partial class AddIdentityTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

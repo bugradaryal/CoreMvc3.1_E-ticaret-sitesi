@@ -36,8 +36,8 @@ namespace eticaretsitesi.Models
                 serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
             //Admin girişi yaptığımız hesap - uygulama tarafından bu kısımda değiştiriliyor!!!
-            var username = "Oyuasx";
-            var password = "31082000bugra12";
+            var username = "admin";
+            var password = "123asd";
             var roleName = "Admin";
 
             if (await roleManager.FindByNameAsync(roleName) == null)

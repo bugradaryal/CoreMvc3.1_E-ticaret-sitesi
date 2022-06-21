@@ -1359,3 +1359,6 @@ C:\Users\bugra\Documents\Uygulamalarım\CoreMvc3.1_E-ticaret-sitesi\eticaretsite
 C:\Users\bugra\Documents\Uygulamalarım\CoreMvc3.1_E-ticaret-sitesi\eticaretsitesi\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\bugra\Documents\Uygulamalarım\CoreMvc3.1_E-ticaret-sitesi\eticaretsitesi\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\bugra\Documents\Uygulamalarım\CoreMvc3.1_E-ticaret-sitesi\eticaretsitesi\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\bugra\Desktop\CoreMvc3.1_E-ticaret-sitesi\eticaretsitesi\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\bugra\Desktop\CoreMvc3.1_E-ticaret-sitesi\eticaretsitesi\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\bugra\Desktop\CoreMvc3.1_E-ticaret-sitesi\eticaretsitesi\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
